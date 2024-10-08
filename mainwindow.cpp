@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "math.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,74 +16,167 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_sum_clicked()
 {
-    calc('+');
+    calc(Operation::Add);
 }
 
 
 void MainWindow::on_pushButton_subtraction_clicked()
 {
-    calc('-');
+    calc(Operation::Subtract);
 }
 
 
 void MainWindow::on_pushButton_multiplication_clicked()
 {
-    calc('*');
+    calc(Operation::Multiply);
 }
 
 
 void MainWindow::on_pushButton_division_clicked()
 {
-    calc('/');
+    calc(Operation::Divide);
 }
 
-void MainWindow::calc(char operation)
+void MainWindow::calc(Operation operation)
 {
-    bool calc_sys_correct_1 = false;
-    bool calc_sys_correct_2 = false;
-    bool calc_sys_correct_result = false;
-    int calc_sys_1 = ui->lineEdit_calc_system_1->text().toInt(&calc_sys_correct_1);
-    int calc_sys_2 = ui->lineEdit_calc_system_2->text().toInt(&calc_sys_correct_2);
-    int calc_sys_result = ui->lineEdit_result_culc_sys->text().toInt(&calc_sys_correct_result);
-
-    if (!calc_sys_correct_1 || !calc_sys_correct_2 || !calc_sys_result) {
-        ui->label_result_value->setText("Ошибка ввода ССЧ!");
-        return;
-    }
-
     bool value_correct_1 = false;
     bool value_correct_2 = false;
-    int value1 = ui->lineEdit_value_1->text().toInt(&value_correct_1, calc_sys_1);
-    int value2 = ui->lineEdit_value_2->text().toInt(&value_correct_2, calc_sys_2);
-
+    double value1 = ui->lineEdit_value_1->text().toDouble(&value_correct_1);
+    double value2 = ui->lineEdit_value_2->text().toDouble(&value_correct_2);
 
     if (!value_correct_1 || !value_correct_2) {
         ui->label_result_value->setText("Неправильный ввод значеня!");
         return;
     }
 
-    QString result = "Неизвестная операция";
+
+
+    double result = 0.0;
 
     switch (operation) {
-    case '*':
-        result = QString::number(value1 * value2, calc_sys_result);
+    case Multiply:
+        result = value1 * value2;
         break;
-    case '+':
-        result = QString::number(value1 + value2, calc_sys_result);
+    case Add:
+        result = value1 + value2;
         break;
-    case '-':
-        result = QString::number(value1 - value2, calc_sys_result);
+    case Subtract:
+        result = value1 - value2;
         break;
-    case '/':
+    case Divide:
+        result = value1 / value2;
         if (value2 == 0) {
-            ui->label_result_value->setText("Деление на 0 запрещено");
+            ui->label_result_value->setText("Деление на 0 запрещено!");
             return;
         }
-        result = QString::number(value1 / value2, calc_sys_result);
+        break;
+    case Sinus:
+        if (ui->radioButton_degrees->isChecked()) {
+            result = sin(value1 * M_PI / 180.0);
+        } else if (ui->radioButton_radians->isChecked()) {
+            result = sin(value1);
+        } else {
+            ui->label_result_value->setText("Выберите тип!");
+            return;
+        }
+        break;
+    case Сosine:
+        if (ui->radioButton_degrees->isChecked()) {
+            result = cos(value1 * M_PI / 180.0);
+        } else if (ui->radioButton_radians->isChecked()) {
+            result = cos(value1);
+        } else {
+            ui->label_result_value->setText("Выберите тип!");
+            return;
+        }
+        break;
+    case Tangent:
+        if (value1 == M_PI / 2 || value1 == 90.0 || value1 == 270.0 || value1 == (3 * M_PI) / 2 ) {
+            ui->label_result_value->setText("Такого тангенса нет!");
+            return;
+        }
+        if (ui->radioButton_degrees->isChecked()) {
+            result = tan(value1 * M_PI / 180.0);
+        } else if (ui->radioButton_radians->isChecked()) {
+            result = tan(value1);
+        } else {
+            ui->label_result_value->setText("Выберите тип!");
+            return;
+        }
+        break;
+    case Сotangent:
+        if (ui->radioButton_degrees->isChecked()) {
+            result = 1/tan(value1 * M_PI / 180.0);
+        } else if (ui->radioButton_radians->isChecked()) {
+            result = 1/tan(value1);
+        } else {
+            ui->label_result_value->setText("Выберите тип!");
+            return;
+        }
+        break;
+    case Arcsine:
+        if (ui->radioButton_degrees->isChecked()) {
+            result = asin(value1 * M_PI / 180.0);
+        } else if (ui->radioButton_radians->isChecked()) {
+            result = asin(value1);
+        } else {
+            ui->label_result_value->setText("Выберите тип!");
+            return;
+        }
+        break;
+    case Arccosine:
+        if (ui->radioButton_degrees->isChecked()) {
+            result = acos(value1 * M_PI / 180.0);
+        } else if (ui->radioButton_radians->isChecked()) {
+            result = acos(value1);
+        } else {
+            ui->label_result_value->setText("Выберите тип!");
+            return;
+        }
         break;
     }
-    QString str = "dklfasjlkdfj;flasdjklfs;ljfa;sldjfdlsjf;lsja;lsdjflsjfljs";
-    ui->label_7->setFixedWidth(str.size());
-    ui->label_7->setText(str);
-    ui->label_result_value->setText(result);
+
+    if (qIsNaN(result)) {
+        ui->label_result_value->setText("Не число!");
+    } else if (qIsInf(result)) {
+        ui->label_result_value->setText("Бесконечность!");
+    } else {
+        ui->label_result_value->setText(QString::number(result, 'f', 10));
+    }
 }
+
+void MainWindow::on_pushButton_sin_clicked()
+{
+    calc(Operation::Sinus);
+}
+
+
+void MainWindow::on_pushButton_cos_clicked()
+{
+    calc(Operation::Сosine);
+}
+
+
+void MainWindow::on_pushButton_tan_clicked()
+{
+    calc(Operation::Tangent);
+}
+
+
+void MainWindow::on_pushButton_cotan_clicked()
+{
+    calc(Operation::Сotangent);
+}
+
+
+void MainWindow::on_pushButton_arcsin_clicked()
+{
+    calc(Operation::Arcsine);
+}
+
+
+void MainWindow::on_pushButton_arccos_clicked()
+{
+    calc(Operation::Arccosine);
+}
+

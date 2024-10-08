@@ -18,7 +18,19 @@ public:
     ~MainWindow();
 
 private:
-    void calc(char operation);
+    enum Operation {
+        Add,
+        Subtract,
+        Multiply,
+        Divide,
+        Sinus,
+        Сosine,
+        Tangent,
+        Сotangent,
+        Arcsine,
+        Arccosine
+    };
+    void calc(Operation operation);
 
 private slots:
     void on_pushButton_sum_clicked();
@@ -28,6 +40,18 @@ private slots:
     void on_pushButton_multiplication_clicked();
 
     void on_pushButton_division_clicked();
+
+    void on_pushButton_sin_clicked();
+
+    void on_pushButton_cos_clicked();
+
+    void on_pushButton_tan_clicked();
+
+    void on_pushButton_cotan_clicked();
+
+    void on_pushButton_arcsin_clicked();
+
+    void on_pushButton_arccos_clicked();
 
 private:
     Ui::MainWindow *ui;
