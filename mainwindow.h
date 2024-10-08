@@ -17,6 +17,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private:
+    void calc(char operation);
+
 private slots:
     void on_pushButton_sum_clicked();
 

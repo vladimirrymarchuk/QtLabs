@@ -17,7 +17,7 @@
    <widget class="QLineEdit" name="lineEdit_value_1">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>250</x>
       <y>60</y>
       <width>113</width>
       <height>22</height>
@@ -27,7 +27,7 @@
    <widget class="QLineEdit" name="lineEdit_value_2">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>250</x>
       <y>110</y>
       <width>113</width>
       <height>22</height>
@@ -37,11 +37,22 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>180</x>
       <y>60</y>
       <width>71</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
     </property>
     <property name="text">
      <string>Значение 1:</string>
@@ -50,7 +61,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>180</x>
       <y>110</y>
       <width>71</width>
       <height>20</height>
@@ -63,7 +74,7 @@
    <widget class="QPushButton" name="pushButton_sum">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>290</x>
       <y>150</y>
       <width>111</width>
       <height>24</height>
@@ -76,8 +87,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>270</y>
+      <x>190</x>
+      <y>230</y>
       <width>61</width>
       <height>20</height>
      </rect>
@@ -89,9 +100,9 @@
    <widget class="QLabel" name="label_result_value">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>270</y>
-      <width>111</width>
+      <x>260</x>
+      <y>230</y>
+      <width>191</width>
       <height>20</height>
      </rect>
     </property>
@@ -102,7 +113,7 @@
    <widget class="QPushButton" name="pushButton_multiplication">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>170</x>
       <y>150</y>
       <width>111</width>
       <height>24</height>
@@ -115,8 +126,8 @@
    <widget class="QPushButton" name="pushButton_division">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>180</y>
+      <x>530</x>
+      <y>150</y>
       <width>111</width>
       <height>24</height>
      </rect>
@@ -128,14 +139,105 @@
    <widget class="QPushButton" name="pushButton_subtraction">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>180</y>
+      <x>410</x>
+      <y>150</y>
       <width>111</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
      <string>Вычитание</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>60</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ССЧ 1:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>110</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ССЧ 2:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_calc_system_1">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>60</y>
+      <width>113</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>10</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_calc_system_2">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>110</y>
+      <width>113</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>10</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>230</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ССЧ: </string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_result_culc_sys">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>230</y>
+      <width>113</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>10</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>360</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>
