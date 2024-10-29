@@ -37,6 +37,13 @@ void MainWindow::on_pushButton_division_clicked()
     calc(Operation::Divide);
 }
 
+double MainWindow::actan(double num) {
+    if (num == 0) {
+        return M_PI / 2;
+    }
+    return M_PI / 2 - atan(num);
+}
+
 void MainWindow::calc(Operation operation)
 {
     bool value_correct_1 = false;
@@ -115,21 +122,33 @@ void MainWindow::calc(Operation operation)
         }
         break;
     case Arcsine:
-        if (ui->radioButton_degrees->isChecked()) {
-            result = asin(value1 * M_PI / 180.0);
-        } else if (ui->radioButton_radians->isChecked()) {
-            result = asin(value1);
-        } else {
+        if (ui->radioButton_degrees->isChecked()) { result = asin(value1) * (180 / M_PI); }
+        else if (ui->radioButton_radians->isChecked()) { result = asin(value1); }
+        else {
             ui->label_result_value->setText("Выберите тип!");
             return;
         }
         break;
     case Arccosine:
-        if (ui->radioButton_degrees->isChecked()) {
-            result = acos(value1 * M_PI / 180.0);
-        } else if (ui->radioButton_radians->isChecked()) {
-            result = acos(value1);
-        } else {
+        if (ui->radioButton_degrees->isChecked()) { result = acos(value1) * (180 / M_PI); }
+        else if (ui->radioButton_radians->isChecked()) { result = acos(value1); }
+        else {
+            ui->label_result_value->setText("Выберите тип!");
+            return;
+        }
+        break;
+    case Arctangent:
+        if (ui->radioButton_degrees->isChecked()) { result = atan(value1) * (180 / M_PI); }
+        else if (ui->radioButton_radians->isChecked()) { result = atan(value1); }
+        else {
+            ui->label_result_value->setText("Выберите тип!");
+            return;
+        }
+        break;
+    case Arccotangent:
+        if (ui->radioButton_degrees->isChecked()) { result = actan(value1) * (180 / M_PI); }
+        else if (ui->radioButton_radians->isChecked()) { result = actan(value1); }
+        else {
             ui->label_result_value->setText("Выберите тип!");
             return;
         }
@@ -178,5 +197,17 @@ void MainWindow::on_pushButton_arcsin_clicked()
 void MainWindow::on_pushButton_arccos_clicked()
 {
     calc(Operation::Arccosine);
+}
+
+
+void MainWindow::on_pushButton_arctan_clicked()
+{
+    calc(Operation::Arctangent);
+}
+
+
+void MainWindow::on_pushButton_arccot_clicked()
+{
+    calc(Operation::Arccotangent);
 }
 

@@ -1,0 +1,9 @@
+C:/Users/vladr/Documents/QtLabs/build/Desktop_Qt_5_15_15_static_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/Lab1.dir
+C:/Users/vladr/Documents/QtLabs/build/Desktop_Qt_5_15_15_static_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/edit_cache.dir
+C:/Users/vladr/Documents/QtLabs/build/Desktop_Qt_5_15_15_static_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/vladr/Documents/QtLabs/build/Desktop_Qt_5_15_15_static_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/list_install_components.dir
+C:/Users/vladr/Documents/QtLabs/build/Desktop_Qt_5_15_15_static_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/install.dir
+C:/Users/vladr/Documents/QtLabs/build/Desktop_Qt_5_15_15_static_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/install/local.dir
+C:/Users/vladr/Documents/QtLabs/build/Desktop_Qt_5_15_15_static_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/install/strip.dir
+C:/Users/vladr/Documents/QtLabs/build/Desktop_Qt_5_15_15_static_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/Lab1_autogen_timestamp_deps.dir
+C:/Users/vladr/Documents/QtLabs/build/Desktop_Qt_5_15_15_static_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/Lab1_autogen.dir

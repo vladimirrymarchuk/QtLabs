@@ -28,9 +28,12 @@ private:
         Tangent,
         Сotangent,
         Arcsine,
-        Arccosine
+        Arccosine,
+        Arctangent,
+        Arccotangent
     };
     void calc(Operation operation);
+    double actan(double num);
 
 private slots:
     void on_pushButton_sum_clicked();
@@ -52,6 +55,10 @@ private slots:
     void on_pushButton_arcsin_clicked();
 
     void on_pushButton_arccos_clicked();
+
+    void on_pushButton_arctan_clicked();
+
+    void on_pushButton_arccot_clicked();
 
 private:
     Ui::MainWindow *ui;
